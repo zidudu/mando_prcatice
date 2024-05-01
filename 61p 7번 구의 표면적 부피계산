@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+//구 표면적과 체적을 구하는 프로그램 작성
+	//구의 반지름 실수로 입력
+	//표면적=4*3.14*(반지름*반지름)
+	//체적=(4/3)*3.14*(반지름*반지름*반지름)
+
+	//반지름
+	double radius;
+	//표면적
+	double surface_area;
+	//부피
+	double volumn;
+	//반지름 입력
+	cout << "반지름 :";
+	cin >> radius;
+	//표면적과 부피 계산
+	surface_area = 4 * 3.141592 * radius * radius;
+	volumn = (4.0 / 3) * 3.141592 * radius * radius * radius;
+	//표면적,부피 출력
+	cout << "표면적 :" << surface_area << endl;
+	cout << "부피 :" << volumn << endl;
+
+;
+}
+;

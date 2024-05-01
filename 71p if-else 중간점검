@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+//컵의 사이즈를 받아 100미만은 small,100이상 200미만은 medium,200이상은 large라고 출력
+	//컵 사이즈
+	int cup_size;
+	//찬성거부 여부
+	char option =true;
+	while (option)
+	{
+		//컵 사이즈 입력
+		cout << "컵 사이즈 입력 :";
+		cin >> cup_size;
+		//컵 사이즈 계산
+		if (200 <= cup_size)
+			cout << "large" << endl;
+		else if (100 <= cup_size && cup_size < 200)
+			cout << "midium" << endl;
+		else //100미만
+			cout << "small" << endl;
+		//다시 할건지 찬반여부
+		cout << "다시 입력 Y/N";
+		cin >> option;
+		//반대일때 종료
+		if (option == 'N') {
+			cout << "종료";
+			option = false;
+
+		}
+		
+	}
+}
+;

@@ -1,0 +1,30 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+//제곱 구하는 함수
+int square(double x) {
+	x = x * x;
+	return x;
+}
+int main()
+{
+	//직각 삼삭형 양면 길이 읽어 빗변 길이 계산하는 프로그램
+	//첫번째 변
+	double side1;
+	//두번째 변
+	double side2;
+	
+	//첫번째 두번째 변 입력
+	cout << "첫 번째 변 : ";
+	cin >> side1;
+	cout << "두 번째 변 :";
+	cin >> side2;
+	
+	//빗변 길이 계산
+	double hypotenuse = sqrt( square(side1) + square(side2));
+	//빗변 길이 출력
+	cout << "빗변 길이 :" << hypotenuse << endl;
+
+
+}
+

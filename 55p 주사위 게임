@@ -1,0 +1,24 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+using namespace std;
+int main()
+{	
+	//두개 주사위 던져 그 주사위의 합을 표시하는 프로그램
+	int dice1, dice2;
+	
+	//주사위 굴리기
+	srand(time(NULL)); // 난수 생성기의 시드(seed)를 설정하는 역할을 합니다. 
+	
+	dice1= (rand() % 6) + 1; //0부터 5까지를 1더해 1부터 6까지
+	cout << "첫번째  주사위 :" << dice1<<endl;
+	dice2 = (rand() % 6) + 1; //0부터 5까지를 1더해 1부터 6까지
+	cout << "두번째 주사위 :" << dice2<<endl;
+	//주사위 합 구하기
+	int dice_sum = dice1 + dice2;
+	cout << "두 주사위 합 =" << dice_sum;
+
+
+
+}
+

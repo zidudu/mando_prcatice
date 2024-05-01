@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{	
+//주어동사 목적어 각 물어보고 이것들을 합하여 출력하기
+	//주어
+	string subject;
+	//동사
+	string verb;
+	//목적어
+	string object;
+	//주어 동사 목적어 입력
+	cout << "주어 입력 :";
+	cin >> subject;
+	cout << "동사 입력 :";
+	cin >> verb;
+	cout << "목적어 입력 :";
+	cin >> object;
+
+	//주어 동사 목적어 합쳐 문장 완성
+	cout << "=>" << subject << " " << verb << " " << object << " " << endl;
+
+}
+

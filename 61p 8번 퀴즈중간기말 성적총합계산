@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	//퀴즈,중간고사,기말고사 성적 사용자로부터 입력받아 성적 총합 계산 프로그램
+	//퀴즈는 3개, 성적을 총합하기, 평균도 내보기
+
+	//퀴즈 
+	int quiz1, quiz2, quiz3;
+	//중간고사
+	int middle_test;
+	//기말고사
+	int last_test;
+	//성적 총합
+	int sum;
+	//성적 평균(내가 임의로 만듬)
+	int average;
+	//퀴즈,중간고사,기말고사 성적 입력
+	cout << "퀴즈 #1 성적:";
+	cin >> quiz1;
+	cout << "퀴즈 #2 성적:";
+	cin >> quiz2;
+	cout << "퀴즈 #3 성적:";
+	cin >> quiz3;
+	cout << "중간고사 성적:";
+	cin >> middle_test;
+	cout << "기말고사 성적:";
+	cin >> last_test;
+	//성적 총합계산
+	sum = quiz1 + quiz2 + quiz3 + middle_test + last_test;
+	//평균 계산
+	average = sum / 5;
+	//성적과 평균 출력
+	cout << "==========================================================="<<endl;
+	cout << "성적 총합 :"<<sum<<endl;
+	cout << "성적 평균 :" << average<<endl;
+	cout << "==========================================================="<<endl;
+
+
+
+;
+}
+;

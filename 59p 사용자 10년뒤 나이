@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+int main()
+{	
+//나이 물어보고 10년 후 몇살되는지 출력
+	//나이
+	int age;
+	//나이 입력
+	cout << "나이 입력 :";
+	cin >> age;
+	//십년후 나이
+	int after_age = age + 10;
+	//10년후 나이 출력
+	cout << "10년 후에는 " << after_age << "살이 됩니다" << endl;
+}
+

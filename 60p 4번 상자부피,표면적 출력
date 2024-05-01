@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	//상자의 길이 너비 높이 입력하라는 메세지 표시
+	///부피와 표면적 계산해 표시하는 프로그램 작성
+	//부피:L*W*H //표면적: 2*[(L*W)+(L*H)+(H*W)]
+	
+	//길이,너비,높이
+	int L, W, H;
+	//부피, 표면적
+	int volumn, surface_area;
+	
+	//길이,너비,높이 입력
+	cout << "길이 입력 :";
+	cin >> L;
+	cout << "너비 입력 :";
+	cin >> W;
+	cout << "높이 입력 :";
+	cin >> H;
+	//부피 계산
+	volumn = L * W * H;
+	//표면적 계산
+	surface_area = 2*((L * W) + (L * H) + (H * W));
+	//상자 부피와 표면적 출력
+	cout << "상자의 부피:" << volumn<<endl;
+	cout << "상자의 표면적:" << surface_area << endl;
+
+
+
+}
+

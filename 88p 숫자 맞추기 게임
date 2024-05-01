@@ -1,0 +1,40 @@
+#include <iostream>
+#include <time.h>
+using namespace std;
+int main()
+{
+//숫자맞추기
+	//if문 do while문 사용
+	//1~100사이 정수 저장, 질문 통해 그 정수 맞히려고 함
+	//답 정답보다 높거나 낮은지만 알려줌
+	//사용자가 정확하게 정수 맞출때까지 반복
+	//맞히면 몇 번만에 알아맞혔는지 화면에 출력
+
+	//랜덤 시드
+	srand(time(NULL));
+	//랜덤 정답 정수
+	int answer = (rand() % 100) + 1;
+	//입력하는 정수
+	int question;
+	//입력 횟수
+	int count=1;
+	do
+	{
+		//정수 입력
+		cout << "정답 추측 :";
+		cin >> question;
+		//정수 정답과 계산
+		if (question > answer) { cout << "제시한 정수 높음" << endl; count++; }
+		else if (question < answer) { cout << "제시한 정수 낮음" << endl; count++; }
+		else
+			//정수 맞히면 횟수 알려주고 종료
+		{
+			cout << "축하합니다 정답입니다! " << "시도횟수 :" << count <<endl;
+			break;
+		}
+	} while (true);
+
+
+
+}
+;

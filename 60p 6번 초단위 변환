@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+//시 분 초로 표현 된 시간을 초 단위의 시간으로 변환하는 프로그램
+//시는 3600초 //분은 60초 
+
+	//시,분 초
+	int hour, minute, second;
+	//전체 초
+	int sum_sec;
+
+	//시,분,초 입력
+	cout << "시 :";
+	cin >> hour;
+	cout << "분 :";
+	cin >> minute;
+	cout << "초 :";
+	cin >> second;
+	//시,분 초 변환
+	sum_sec = (3600 * hour)+(60*minute)+second;
+	//전체 초 출력
+	cout << "전체 초 :" << sum_sec;
+
+
+
+
+
+
+}
+

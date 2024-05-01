@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+int main()
+{	
+ //속력
+	double speed = 60;
+	//시간
+	double time = 2.5;
+	//이동거리
+	double distance = speed * time;
+	//거리 출력
+	cout << "이동 거리는 " << speed << "*" << time << "=" << distance << "이다";
+
+
+}
+

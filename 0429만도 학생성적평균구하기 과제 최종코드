@@ -1,0 +1,138 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+
+//1.국어 수학 영어 점수를 입력받아라
+//10명분 입력받기
+//2.과목별마다 최저 점수를 알려주고 그 최저 점수의 학번을 출력하라
+//학번은 되도록 그 열의 있는 것이니 클래스와 제어변수 쓰는게 편할지도
+//3.각 학번마다 평균값을 구한 다음 평균값이 낮은 순서부터 출력하기
+//평균 점수 순서대로 내놓아야함
+//학번,국어,영어,수학,평균으로 나열해서 정렬해보기
+
+int main() {
+	//시드 함수(현재 시간마다 시드값이 변경됨)
+	srand(time(NULL));
+
+	//10명분의 학번,국어,수학,영어,평균을 얻어야 함
+	//10명의 5개의 값 저장 배열
+	int list[10][5];
+	//평균 변수
+	int average;
+
+	//각 성적을 입력
+	for (int i = 0; i < 10; i++) {
+		//성적 총합 변수
+		int sum = 0;
+		//학번은 0인덱스에 넣기
+		list[i][0] = i; 
+		//성적 입력
+		//cout << i<<" 학번의 국어,영어,수학 성적을 입력하세요 :"<<endl;
+		
+		//**성적 입력을 랜덤함수 사용하여 배치
+		for (int j = 1; j <= 3; j++)
+		{
+			//랜덤함수 사용해 성적 입력
+			list[i][j] = rand() % 100 + 1; //1~100
+			//{입력함수}
+			//cin >> list[i][j];
+			sum += list[i][j];
+		}
+		//평균값 배열에 삽입
+		average = sum / 3;
+		list[i][4] = average;
+		//학생평균 출력
+		cout << list[i][0] << " 학생 평균 :" << list[i][4] << endl;
+	}
+
+	//학번 순서부터 나열한 성적 리스트
+	cout << "********************************" << endl;
+	cout << "<<학번 순서대로 나열한 성적 리스트>> \n";
+	for (int i = 0; i < 10; i++) {
+		cout << "\n학번\t국어\t영어\t수학\t평균\n";
+		for (int j = 0; j < 5; j++) {
+			cout << list[i][j] << "\t";
+		}
+		cout << endl;
+	}
+	cout << "********************************"<<endl;
+
+
+	//과목별 최저 점수를 첫번째 학번학생으로 잡음
+	int gug_min = list[0][1];
+	int eng_min = list[0][2];
+	int math_min = list[0][3];
+
+	//최저점수 학번 변수
+	int x = 0, y = 0, z = 0; //0학번 기본값으로 지정
+	//10명 최저 점수 검사
+	for (int i = 1; i < 10; i++) {
+		//국어
+		if (gug_min > list[i][1]) {
+			gug_min = list[i][1];
+			x = i;
+		}
+		//영어
+		if (eng_min > list[i][2]) {
+			eng_min = list[i][2];
+			y = i;
+		}
+		//수학
+		if (math_min > list[i][3]) {
+			math_min = list[i][3];
+			z = i;
+		}
+	}
+	//각 성적 최저점수와 학번 출력
+	cout << "국어 최저점수 : " << gug_min << "/학번 :" << x << endl;
+	cout << "영어 최저점수 : " << eng_min << "/학번 :" << y << endl;
+	cout << "수학 최저점수 : " << math_min << "/학번 :" << z << endl;
+
+
+	//3.평균값 낮은 순서부터 출력
+	//각 점수를 더하고 평균을 내서 그것을 비교하여 출력
+
+	//복사 배열
+	int average_list[10][5];
+
+	//list 배열 값 복사
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 5; j++) {
+			average_list[i][j] = list[i][j];
+		}
+	}
+
+	// 버블 정렬(시간 복잡도 O(n^2) )
+	for (int i = 0; i < 9; i++) { //10번째 인덱스 없어서 9번만 반복
+		for (int j = 0; j < 9; j++) {
+			//평균값이 위 평균값보다 클때
+			if (average_list[j][4] > average_list[j + 1][4]) {
+				//교체 변수
+				int tmp;
+				//0부터 4까지의 인덱스 값들의 위치를 바꿈
+				// {나중에 이 코드를 함수로 변환해 작성 예정}
+				for (int k = 0; k < 5; k++) {
+					tmp = average_list[j][k];
+					average_list[j][k] = average_list[j + 1][k];
+					average_list[j + 1][k] = tmp;
+				}
+			}
+		}
+	}
+
+	//평균값 낮은 순서부터 나열한 성적 리스트
+	cout << "********************************"<<endl;
+	cout << "<<평균값 낮은 순서부터 나열한 성적 리스트>> \n";
+	for (int i = 0; i < 10; i++) {
+		cout << "\n학번\t국어\t영어\t수학\t평균\n";
+		for (int j = 0; j < 5; j++) {
+			cout << average_list[i][j] << "\t";
+		}
+		cout << endl;
+	}
+	cout << "********************************";
+
+
+	return 0;
+}

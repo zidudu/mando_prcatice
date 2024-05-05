@@ -1,31 +1,31 @@
 #include <iostream>
 #include <time.h>
 using namespace std;
-//사각형
+//사각형 함수
 double Rectangle() {
-	cout << "사각형 선택 " << endl;
-	int width,height;
+	cout << "<<사각형 선택>> " << endl;
+	int width, height;
 	cout << "가로 :";
 	cin >> width;
 	cout << "세로 :";
 	cin >> height;
 	return width * height;
 }
-//원
+//원 함수
 double Circle() {
-	cout << "원 선택 " << endl;
+	cout << "<<원 선택>> " << endl;
 	int radius;
-	cout << "반지름";
+	cout << "반지름 :";
 	cin >> radius;
 	return 3.14 * radius;
 }
-//삼각형
+//삼각형 함수
 double Triangle() {
-	cout << "삼각형 선택 " << endl;
+	cout << "<<삼각형 선택>> " << endl;
 	int width, height;
 	cout << "밑변 :";
 	cin >> width;
-	cout << "높이";
+	cout << "높이 :";
 	cin >> height;
 	return (1.0 / 2) * width * height;
 }
@@ -34,20 +34,22 @@ int main()
 {
 	//도형의 면적 계산하기
 	//도형을 선택하라고 요청 후 사용자의 입력을 기다리고 처리하기 위해 3개의 if-else 블록 사용
-	//사욪아가 선택사항 입력하면 프로그램은 지정된 모양의 면적 계산한 그렇지 않으면 유효하지 않다고 알림
+	//사용자가 선택사항 입력하면 프로그램은 지정된 모양의 면적 계산한 그렇지 않으면 유효하지 않다고 알림
 
-	//도형 선택 
+	//도형 선택 변수
 	int choice;
-	//면적
+	//면적 변수
 	double area;
-	//찬반
-	char option='Y';
+	//찬반 변수 
+	char option = 'Y';
 
 	//도형 선택 입력
-	while (option=='Y')
+	while (option == 'Y')
 	{
+		//도형 선택 입력
 		cout << "도형을 선택하세요 (1:사각형,2:원,3:삼각형) :";
 		cin >> choice;
+		//검사 후 도형 함수 호출
 		if (choice == 1) {
 			area = Rectangle();
 		}
@@ -58,17 +60,18 @@ int main()
 		{
 			area = Triangle();
 		}
+		//입력 이상할 경우
 		else {
 			cout << "입력 값이 이상합니다 다시 입력하세요" << endl;
 			continue;
 		}
 		//면적 출력
-		cout << "면적 :" << area << endl;
-		//다시 할건지 물어봄
+		cout << "=> 면적 :" << area << endl;
+		//다시 플레이 여부
 		cout << "다시 하시겠습니까? (Y/N) =>";
 		cin >> option;
 	}
-	
+
 
 
 

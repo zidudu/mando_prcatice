@@ -1,0 +1,18 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+	//배열 생성
+	int list[]{ 1,2,3,4,5,6,7,8,9,10 }; //= 안써도 초기화 됨
+	//int &i=list[0~9] =>참조변수 사용 //i는 list요소의 별명, i의 값 변경하면 list요소값도 변경됨
+	for (int &i : list) { //list의 값을 i가 하나씩 받음, 배열 값 끝까지 반복, 즉 10번 반복
+		
+		i = i * i;
+	}
+	for (int i : list) {
+		cout << i << " ";
+	}
+	
+
+}

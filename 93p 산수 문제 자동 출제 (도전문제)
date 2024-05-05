@@ -1,0 +1,73 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+int main()
+{
+	//산수 문제 자동 출제하는 프로그램
+	//덧셈 문제 자동으로 생성
+	//0~99사이의 숫자 난수
+	//한번이라도 맞으면 종료
+
+	//정답 입력 변수
+	double answer;	
+	// 연산자 랜덤 변수
+	int operater;
+	//실제 연산자
+	char operate[4] = { '+','-','*','/' };
+	//옵션 변수
+	char option='Y';
+
+	//안내 문자
+	cout << "**산수 문제를 자동으로 출제합니다!**" << endl;
+
+	//반복문
+	while (option=='Y')
+	{
+		
+		srand(time(NULL));
+		//난수 두개의 값 변수
+		double x = rand() % 100; //0~99
+		double y = rand() % 100;
+
+		//합산 값
+		double sum;
+		//연산자 랜덤 변수
+		operater = rand() % 4; //0~4
+		
+		//연산자별로 계산
+		if (operater == 0) {
+			sum = x + y;
+		}
+		else if (operater == 1) {
+			sum = x - y;
+		}
+		else if (operater == 2) {
+			sum = x * y;
+		}
+		else if (operater == 3) {
+			//y가 0일땐 다시 랜덤 돌림
+			if (y == 0) {
+				continue;
+			}
+			else
+				sum = x / y;
+		}
+		//산수 문제 출력
+		cout << x << operate[operater] << y << "=";
+		//정답 입력
+		cin >> answer;
+		//정답 검사
+		//정답일 경우 종료
+		if (answer == sum) {
+			cout << "축하합니다! 정답입니다"<<endl;
+			cout << "다시 하시겠습니까? (Y/N)=>";
+			cin >> option;
+		}
+		//틀릴 경우 다른 문제로 다시 계산
+		else {
+			cout << "틀렸습니다..다시 시도해보세요!" << endl;
+			cout << "정답 :" << sum<<endl;
+			continue;
+		}
+	}
+}

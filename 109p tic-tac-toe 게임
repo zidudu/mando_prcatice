@@ -1,0 +1,80 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+	//tic-tac-toe
+	//2명 경기자가 번갈아가며 0,x 놓는 게임
+	//빙고 되면 이김
+	//도전문제: 컴퓨터와 사람이 대결하는 프로그램
+
+	//1.보드 만들기
+	//2.사용자 좌표 입력하면 그 좌표에 ox입력됨
+	//빙고되면 종료
+
+	//빙고 보드
+	char board[3][3];
+	//보드 출력
+	int k;
+
+	//좌표 변수
+	int x, y;
+
+	//보드 초기화
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			board[i][j] = ' ';
+		}
+	}
+	//9번 반복
+	for (k = 0; k < 9; k++) {
+
+
+		//좌표 입력
+		cout << "(x,y) 좌표 :";
+		cin >> x >> y;
+
+		//입력한 좌표에 값이 있다면 
+		if (board[y][x] != ' ') {
+			cout << "다시 입력하세요 " << endl;
+			k--;
+			continue;
+		}
+		//순서 결정
+		//X
+		if (k % 2 == 0) {
+			board[y][x] = 'X';
+		}
+		//O
+		else {
+			board[y][x] = 'O';
+		}
+
+		//보드 만들기
+		for (int i = 0; i < 3; i++) {
+			cout << "---|---|---" << endl;
+			cout << board[i][0] << "  | " << board[i][1] << " | " << board[i][2] << endl;
+		}
+		cout << "---|---|---" << endl;
+
+		//빙고 검사
+		for (int i = 0; i < 3; i++) {
+			//가로
+			if (board[i][0] == 'X' && board[i][1] == 'X' && board[i][2] == 'X') {cout << "X 가로빙고 승리!" << endl;return 0;}
+			else if (board[i][0] == 'O' && board[i][1] == 'O' && board[i][2] == 'O') {cout << "O 가로빙고 승리!" << endl;return 0;}
+			//세로
+			if (board[0][i] == 'X' && board[1][i] == 'X' && board[2][i] == 'X') {cout << "X 세로빙고 승리!" << endl;return 0;}
+			else if (board[0][i] == 'O' && board[1][i] == 'O' && board[2][i] == 'O') {cout << "O 세로빙고 승리!" << endl;return 0;}
+		}
+		//대각선
+		if (board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X') { cout << "X 대각선빙고 승리!" << endl; return 0; }
+		else if (board[2][0] == 'X' && board[1][1] == 'X' && board[0][2] == 'X') { cout << "X 대각선빙고 승리!" << endl; return 0; }
+		if (board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O') { cout << "O 대각선빙고 승리!" << endl; return 0; }
+		else if (board[2][0] == 'O' && board[1][1] == 'O' && board[0][2] == 'O') { cout << "O 대각선빙고 승리!" << endl; return 0; }
+
+
+	}
+}
+
+
+

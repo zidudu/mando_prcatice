@@ -1,0 +1,53 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+int main()
+{
+	//10명에게 아침에 먹은 사과 개수 입력 요청
+	//개수 분석해 누가 가장 많이 먹었는지 출력
+	//적게 먹은 사람도 찾아보기
+	//먹은 사과 개수 순으로 출력도 해보기
+
+	//상수 변수
+	const int value = 10;
+	//배열 생성
+	int list[value];
+	//10명 사과 개수 입력
+	for (int i = 0; i < value; i++) {
+		cout << i << "님의 아침에 먹은 사과 개수 입력 :";
+		cin >> list[i];
+	}
+	//사과 최대 개수 찾기
+	
+	//최대값 변수
+	int max = list[0];
+	//최대값 번호 변수
+	int max_index = 0;
+	//최소값 변수
+	int min = list[0];
+	//최소값 번호 변수
+	int min_index = 0;
+	//최대값 검사
+	for (int i = 0; i < value; i++) {
+		if (max < list[i]) {
+			max = list[i];
+			max_index = i;
+		}
+		if (min > list[i]) {
+			min = list[i];
+			min_index = i;
+		}
+
+	}
+	//최대로 먹은 사과 개수와 사람 번호 출력
+	cout << "===============================================" << endl;
+	cout << "최대 사과 개수 :" << max << endl;
+	cout << "최대로 먹은 사람의 번호 :" << max_index << endl;
+	cout << "===============================================" << endl;
+	//최소로 먹은 사과 개수와 사람 번호 출력
+	cout << "최소 사과 개수 :" << min << endl;
+	cout << "최소로 먹은 사람의 번호 :" << min_index << endl;
+	cout << "===============================================" << endl;
+
+
+}

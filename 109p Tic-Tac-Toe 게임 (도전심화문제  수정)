@@ -1,0 +1,221 @@
+#include <iostream>
+#include <string>
+#include <stdlib.h>
+#include <chrono>
+#include <thread>
+
+using namespace std;
+using namespace chrono;
+using namespace this_thread;
+
+//컴퓨터랑 상대하는 모드
+//근데 컴퓨터는 랜덤 숫자를 출력하는데 랜덤한 곳에 입력시 이미 값이 있는 경우엔 다시 입력하라고 나와서
+//나중엔 값 넣는데 시간 많이 걸릴 위험 있음 이 문제를 고쳐야함
+
+int main()
+{
+	//시드값 함수
+	srand(time(NULL));
+	//tic-tac-toe
+	//2명 경기자가 번갈아가며 0,x 놓는 게임
+	//빙고 되면 이김
+	//도전문제: 컴퓨터와 사람이 대결하는 프로그램
+
+	//1.보드 만들기
+	//2.사용자 좌표 입력하면 그 좌표에 ox입력됨
+	//빙고되면 종료
+
+	//
+
+
+	//빙고 보드
+	char board[3][3];
+	//보드 출력
+	int k;
+
+	//좌표 변수
+	int x, y;
+
+	//보드 초기화
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			board[i][j] = ' ';
+		}
+	}
+	//사용자 이름 변수
+	string name;
+	//사용자 이름 입력
+	cout << "반갑습니다 tic-tac-toe 게임에 오신걸 환영합니다" << endl;
+	cout << "플레이어 이름을 입력하세요 :";
+	cin >> name;
+
+	//옵션 변수
+	char option;
+	//선공 정하기
+	bool order;
+
+	//x와 o변수
+	char player = 'X';
+	while (true)
+	{
+		cout << "선공/후공 중 선택 (X:선공,O:후공):";
+		cin >> option;
+		if (option == 'X') {
+			order = true;
+			break;
+		}
+		else if (option == 'O') {
+			order = false;
+			break;
+
+		}
+		else {
+			cout << "다시 입력해주세요"<<endl;
+		}
+	}
+	//컴퓨터 난이도 선택 변수
+	int difficulty;
+	while (true)
+	{
+		cout << "컴퓨터 난이도 선택(1:쉬움,2:중간) ";
+		cin >> difficulty;
+		if (difficulty == 1 || difficulty == 2) {
+			break;
+		}
+		
+	}
+	//9번 반복
+	for (k = 0; k < 9; k++) {
+
+
+		//좌표 입력
+		
+		//나의 차례
+		if (order==true) {
+			cout << "["<<name << "님, (x,y) 좌표를 입력하세요] =>";
+			cin >> x >> y;
+			
+		}
+		//컴퓨터의 차례
+		//order==false
+		else {
+			cout << "컴퓨터 입력중..." << endl;
+			// 3초 동안 대기
+			sleep_for(seconds(1));
+			cout << "[컴퓨터의 좌표 입력]=>"<<endl;
+			//중간
+			if (difficulty == 2) {
+				for (int i = 0; i < 3; i++) {
+					
+					//가로
+					if (board[i][0] == player && board[i][1] == player &&board[i][2]==' ') { y = i; x = 2; }
+					if (board[i][1] == player && board[i][2] == player&&board[i][0]==' ') { y = i; x = 0; }
+					if (board[i][0] == player && board[i][2] == player &&board[i][1]==' ') { y = i; x = 1; }
+					//세로
+					if (board[0][i] == player && board[1][i] == player && board[2][i] == ' ') { y = 2; x = i; }
+					if (board[1][i] == player && board[2][i] == player && board[0][i] == ' ') { y = 0; x = i; }
+					if (board[0][i] == player && board[2][i] == player && board[1][i] == ' ') { y = 1; x = i; }
+
+					//if (board[i][0] != player && board[i][1] != player && board[i][2] == ' ') { y = i; x = 2; }
+					//if (board[i][1] != player && board[i][2] != player && board[i][0] == ' ') { y = i; x = 0; }
+					//if (board[i][0] != player && board[i][2] != player && board[i][1] == ' ') { y = i; x = 1; }
+					////세로
+					//if (board[0][i] != player && board[1][i] != player && board[2][i] == ' ') { y = 2; x = i; }
+					//if (board[1][i] != player && board[2][i] != player && board[0][i] == ' ') { y = 0; x = i; }
+					//if (board[0][i] != player && board[2][i] != player && board[1][i] == ' ') { y = 1; x = i; }
+
+
+
+				}
+				//대각선
+				if (board[0][0] == player && board[1][1] == player && board[2][2] == ' ') { y = 2; x = 2; }
+				if (board[0][0] == player && board[2][2] == player && board[1][1] == ' ') { y = 1; x = 1; }
+				if (board[1][1] == player && board[2][2] == player && board[0][0] == ' ') { y = 0; x = 0; }
+				
+				if (board[2][0] == player && board[1][1] == player && board[0][2] == ' ') { y = 0; x = 2; }
+				if (board[1][1] == player && board[0][2] == player && board[2][0] == ' ') { y = 2; x = 0; }
+				if (board[2][0] == player && board[0][2] == player && board[1][1] == ' ') { y = 1; x = 1; }
+
+				//if (board[0][0] != player && board[1][1] != player && board[2][2] == ' ') { y = 2; x = 2; }
+				//if (board[0][0] != player && board[2][2] != player && board[1][1] == ' ') { y = 1; x = 1; }
+				//if (board[1][1] != player && board[2][2] != player && board[0][0] == ' ') { y = 0; x = 0; }
+
+				//if (board[2][0] != player && board[1][1] != player && board[0][2] == ' ') { y = 0; x = 2; }
+				//if (board[1][1] != player && board[0][2] != player && board[2][0] == ' ') { y = 2; x = 0; }
+				//if (board[2][0] != player && board[0][2] != player && board[1][1] == ' ') { y = 1; x = 1; }
+
+
+				else {
+					x = rand() % 3; //0~2
+					y = rand() % 3; //0~2
+				}
+
+
+			}
+			//쉬움
+			else if (difficulty == 1) {
+				x = rand() % 3; //0~2
+				y = rand() % 3; //0~2
+			}
+		}
+
+		//입력한 좌표에 값이 있다면 
+		if (board[y][x] != ' ') {
+			//상대가 컴퓨터인 경우
+			if (order == false) {
+				while (true)
+				{
+					x = rand() % 3;y = rand() % 3; //0~2
+					if (board[y][x] == ' ') {
+						break;
+					}
+				}
+			}
+			//사용자일 경우
+			else {
+				cout << "다시 입력하세요 " << endl;
+				k--;
+				continue;
+			}
+		}
+		//지정 좌표에 x와 o 넣기
+		board[y][x] = player;
+
+
+		//보드 그리기
+		cout << endl;
+		for (int i = 0; i < 3; i++) {
+			cout << "---|---|---" << endl;
+			cout << board[i][0] << "  | " << board[i][1] << " | " << board[i][2] << endl;
+		}
+		cout << "---|---|---\n" << endl;
+
+		//빙고 검사
+		for (int i = 0; i < 3; i++) {
+			//가로
+			if (board[i][0] == player && board[i][1] == player && board[i][2] ==player) {cout << player <<"가로빙고 승리!" << endl;return 0;}
+			//세로
+			if (board[0][i] == player && board[1][i] == player && board[2][i] == player) {cout <<player <<" 세로빙고 승리!" << endl;return 0;}
+		}
+		//대각선
+		if (board[0][0] == player && board[1][1] == player && board[2][2] == player) { cout << player<<"대각선빙고 승리!" << endl; return 0; }
+		else if (board[2][0] == player && board[1][1] == player&& board[0][2] == player) { cout << player<<"대각선빙고 승리!" << endl; return 0; }
+
+		//순서 변경
+		if (order == true)
+			order = false;
+		else
+			order = true;
+		//x와 o 변경
+		if (player == 'X') 
+			player = 'O';
+		else
+			player = 'X';
+	}
+	//비겼을때
+	cout << "비겼습니다" << endl;
+	return 0;
+}
+
+
+

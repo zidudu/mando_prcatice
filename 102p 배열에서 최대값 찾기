@@ -1,0 +1,60 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+int main()
+{
+//크기 100 배열을 1~100사이 난수 채우기
+	//배열 요소 중 최대값 찾기
+	//첫번째 요소를 최대값으로 가정후 비교하기
+	//for (auto& e : list) {
+	//	if (e > max)
+	//		max = e;
+	//}
+	
+	//시드 함수
+	srand(time(NULL));
+	//상수변수
+	const int VALUE = 100;
+	//배열 생성
+	int list[VALUE];
+	
+	//1~100사이의 난수를 배열 값에 넣기
+	for (int i = 0; i < VALUE; i++) {
+		list[i] = rand() % 100 + 1; //1~100
+	}
+
+	//값 출력
+	cout << "<list 배열 값 출력>" << endl;
+	cout << "*********************************************************" << endl;
+	for (int i = 0; i < VALUE; i++) {
+		//i가 10의 배수일 경우 줄바꿈
+		if (i % 10 == 0) {
+			cout << endl;
+		}
+		cout << list[i]<<"\t";
+	}
+	cout << endl;
+	cout << "*********************************************************" << endl;
+	
+	//최대값 변수
+	int max = list[0];
+	//최댓값 번호 변수
+	int max_index = 0;
+	//*몇번째 요소에 있는지 찾기 위해 변수 생성
+	int count = 0;
+
+	//최대값과 요소들 비교
+	for (auto& i : list) {
+		
+		if (i > max) {
+			max = i;
+			max_index = count;
+		}
+		count++;
+	}
+
+	//최대값 출력
+	cout << "최대값 :" << max << endl;
+	cout << "최대값 번호 :" << max_index <<"번" << endl;
+
+}

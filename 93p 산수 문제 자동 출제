@@ -1,0 +1,52 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std;
+int main()
+{
+	//산수 문제 자동 출제하는 프로그램
+	//덧셈 문제 자동으로 생성
+	//0~99사이의 숫자 난수
+	//한번이라도 맞으면 종료
+
+	////난수 두개의 값 변수
+	//int x = rand() % 100;
+	//int y = rand() % 100;
+
+	////난수 덧셈 값 변수
+	//int sum = x + y;
+	//
+	//정답 입력 변수
+	int answer;
+	
+	//안내 문자
+	cout << "산수 문제를 자동으로 출제합니다" << endl;
+	cout << "다음 덧셈 연산의 정답을 적어주세요" << endl;
+
+	//반복문
+	while (true)
+	{
+		srand(time(NULL));
+		//난수 두개의 값 변수
+		int x = rand() % 100;
+		int y = rand() % 100;
+
+		//난수 덧셈 값 변수
+		int sum = x + y;
+
+		//산수 문제 출력
+		cout << x << "+" << y << "=";
+		//정답 입력
+		cin >> answer;
+		//정답 검사
+		//정답일 경우 종료
+		if (answer == sum) {
+			cout << "축하합니다! 정답입니다"<<endl;
+			return 0;
+		}
+		//틀릴 경우 다른 문제로 다시 계산
+		else {
+			cout << "틀렸습니다..다시 시도해보세요!" << endl;
+			continue;
+		}
+	}
+}

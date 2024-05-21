@@ -1,0 +1,81 @@
+
+#include <iostream>
+using namespace std;
+
+void LinkPointerToValue() {
+    int i = 10;
+    int* p;
+    p = &i;
+    printf("i의 값 :  %d\n", i); //정수 가리킴
+    printf("p가 가리키는 주소의 값:  %d\n", *p); //정수 가리킴
+
+}
+void PointerCompare(int *pi,int *i, double* pf, double* f) {
+    printf("함수\n");
+    printf("pi:%p, i:%p \n", pi, i);
+    printf("pf:%p, f:%p \n", pf, f);
+
+}
+void SetList(int* list) {
+    for (int i = 0; i < 5; i++) list[i] = i;
+}
+
+void PrintList(int list[]) {
+    for (int i = 0; i < 5; i++) printf("%d ", list[i]);
+}
+
+int main()
+{
+    //int i = 10;
+    //int j = 20;
+    //int* p;
+    //p = &i;
+    //printf("p의 i참조값:%d \n", *p);
+
+    //p = &j;
+    //printf("p의 j참조값:%d \n", *p);
+    //
+
+    ////리스트 함수로 참조해보기
+    //int list[5];
+    //
+    ////리스트 값 설정
+    //SetList(list);
+
+    ////리스트 값 출력
+    //printf("리스트의 값: ");
+    //PrintList(list);
+
+    //int i = 3000;
+    //int* p = NULL;
+
+    //p = &i;
+    //printf("p가 가리키는 주소 = %p\n", p);
+    //printf("i의 주소 = %p\n", &i);
+    //printf("i의 값=%d\n", i);
+    //printf("p 참조값=%d\n", *p);
+
+    int x = 10, y = 20;
+    int* p;
+    p = &x;
+    printf("p의 주소=%p\n", p);
+    printf("p의 참조값=%d\n", *p);
+    //p의 참조값 증가
+    
+    //*p = *p + 1; //참조값 증가
+    ++*p; 
+    //p = p + 1; //주소값 증가
+    printf("증가된 p의 참조값=%d\n", *p);
+
+    printf("\n");
+
+    p = &y;
+    printf("p의 주소=%p\n", p);
+    printf("p의 참조값=%d\n", *p);
+    *p = *p + 1; //참조값 증가
+    printf("증가된 p의 참조값=%d\n", *p);
+
+
+    return 0;
+}
+

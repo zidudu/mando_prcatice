@@ -1,0 +1,35 @@
+
+#include <iostream>
+using namespace std;
+
+void LinkPointerToValue() {
+    int i = 10;
+    int* p;
+    p = &i;
+    printf("i의 값 :  %d\n", i); //정수 가리킴
+    printf("p가 가리키는 주소의 값:  %d\n", *p); //정수 가리킴
+
+}
+void PointerCompare(int *pi,int *i, double* pf, double* f) {
+    printf("함수\n");
+    printf("pi:%p, i:%p \n", pi, i);
+    printf("pf:%p, f:%p \n", pf, f);
+
+}
+int main()
+{
+    int i = 10;
+    double f = 12.3;
+    int* pi = NULL;
+
+    double* pf = NULL;
+    pi = &i;
+    pf = &f;
+    printf("메인\n");
+    printf("pi:%p, i:%p \n", pi, &i);
+    printf("pf:%p, f:%p \n", pf, &f);
+    PointerCompare(pi, &i, pf, &f);
+    LinkPointerToValue();
+    return 0;
+}
+

@@ -1,0 +1,56 @@
+
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+
+struct  student
+{
+	int number;
+	char name[10];
+	double grade;
+}; 
+
+void printStruct(student s) {
+
+	//출력
+	printf("학번:%d\n", s.number);
+	printf("이름:%s\n", s.name);
+
+	printf("학점:%.2f\n", s.grade);
+
+
+}
+void GetStruct(student &s) {
+	s.number = 20230001; //변수 값 설정
+	strcpy_s(s.name, "홍길동"); //변수 값 설정
+	s.grade = 4.3; //변수 값 설정
+
+}
+int main()
+{
+	
+	struct student s; //구조체 변수 선언
+
+	//구조체 안의 변수 선언
+	GetStruct(s);
+	//출력
+	printStruct(s);
+
+	//구조체 배열 생성
+	struct student ss[2];
+
+
+	printf("학번을 입력해라 :");
+	scanf_s("%d", &s.number);
+	printf("이름을 입력해라 :");
+	scanf_s("%s", s.name,sizeof(s.name)); //주소전달
+	printf("학번을 입력해라 :");
+	scanf_s("%lf", &s.grade);
+
+	printf("\n학번:%d\n", s.number);
+	printf("\n이름:%s\n", s.name);
+	printf("\n학점:%f\n", s.grade);
+
+
+}
+

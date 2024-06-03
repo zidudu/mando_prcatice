@@ -7,11 +7,13 @@ int main()
 	int i = 100;
 	int* p = &i;
 	int** q = &p;
-
+	int*** k = &q;
 	*p = 200;
-	printf("p가 가리키는 i=%d\n", i);
+	printf("p가 가리키는 i=%d\n", *p);
 
 	**q = 300;
-	printf("q가 가리키는 p가 가리키는 i=%d\n", i);
+	printf("q가 가리키는 p가 가리키는 i=%d\n", **q);
+	***k = 500;
+	printf("q가 가리키는 p가 가리키는 k가 가리키는 i=%d\n", ***k);
 
 }

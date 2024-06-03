@@ -1,0 +1,34 @@
+
+#include <stdio.h>
+
+int main()
+{
+	//char fruits[4][10] = {
+	//	"apple","blueberry","orange","melon"
+	//};
+	//const char *fruits[] = {
+	//"apple","blueberry","orange","melon"
+	//}; //문자열 자체엔 주소가 있기 때문에 각 문자열 주소를 포인터가 가리킴
+
+	int i, n;
+	const char* fruits[] = {
+	"apple","blueberry","orange","melon"
+	};
+	printf("Address of \"apple\": %p\n", (void*)"apple");
+	n = sizeof(fruits) / sizeof(fruits[0]);
+	const char *a = "a";
+	printf("%s\n", a);
+	printf("%p\n", a);
+	printf("%p\n", &a); //000000461BB8FC84
+	printf("%p\n", *a);
+	printf("Address  %p \n", (void*)a);
+
+
+	for (i = 0; i < n; i++) {
+		printf("%s \n", fruits[i]);
+		printf("%p \n", &fruits[i]);
+		printf("Address  %p \n", (void*)fruits[i]);
+
+	}
+
+}

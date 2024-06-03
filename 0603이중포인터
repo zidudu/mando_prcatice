@@ -1,0 +1,20 @@
+
+#include <iostream>
+using namespace std;
+int main()
+{
+//이중 포인터: 포인터를 가리키는 포인터
+	int i = 10;
+	int* p = &i;
+	int** q = &p;
+	cout <<  "i 값 :" << i<<endl;
+	cout << "i 주소 :" << &i << endl;
+
+	cout << "포인터 값 :" << *p<<endl;
+	cout << "포인터 가리키는 주소 :" << p << endl;
+
+	cout<<"이중포인터 값 :" << **q << endl;
+	cout << "이중포인터 가리키는 주소 :" << *q << endl;
+
+
+}

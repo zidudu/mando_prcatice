@@ -1,0 +1,17 @@
+
+#include <iostream>
+using namespace std;
+int main()
+{
+//이중 포인터: 포인터를 가리키는 포인터
+	int i = 100;
+	int* p = &i;
+	int** q = &p;
+
+	*p = 200;
+	printf("p가 가리키는 i=%d\n", i);
+
+	**q = 300;
+	printf("q가 가리키는 p가 가리키는 i=%d\n", i);
+
+}

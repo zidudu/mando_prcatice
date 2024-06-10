@@ -1,0 +1,44 @@
+
+
+#include <iostream>
+#include <stdio.h>
+#define SQURE(x)((x)*(x))
+
+#define PRINT(exp) printf(#exp"=%d\n",exp);
+
+#define PRINTCHAR(ch) printf(#ch"=%c\n",ch);
+
+//#define ASSERT(exp) \{
+//if (!(exp))\{
+//	printf("가정(" #exp")이 소스 파일 %s %d번째 줄에서 실패.\n")\, __FILE__, __LINE__), exit(1); 
+//}
+//
+//}
+#define ASSERT(exp) \
+    if (!(exp)) { \
+        printf("가정(" #exp ")이 소스 파일 %s %d번째 줄에서 실패.\n", __FILE__, __LINE__); \
+        exit(1); \
+    }
+int main()
+{
+	int sum = 100;
+	ASSERT(sum == 0);
+	return 0;
+ //전처리기 컴파일전에 실행하는 것
+//매크로도 쓸 수 있음 ()
+
+	//int x = 2;
+	//printf("%d\n", SQURE(x));
+	//printf("%d\n", SQURE(3));
+	//printf("%f\n", SQURE(1.2));
+	//printf("%d\n", SQURE(x+3));
+	//printf("%d\n", 100/SQURE(x));
+	//printf("%d\n", SQURE(++x));
+	
+	int x = 5;
+	PRINT(x); //exp는 변수의 이름을 표시하고, x의 값을 =뒤에 표시함
+
+	char c='A';
+	PRINTCHAR(c);
+
+}

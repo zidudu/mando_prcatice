@@ -1,0 +1,55 @@
+#include <iostream>
+#include <stdio.h>
+int main()
+{
+//메모리 누수 발생
+//최근 시스템은 그런거 없음
+//
+	//int* score;
+	//score = (int*)malloc(100 * sizeof(int));
+	//for (int i = 0; i < 100; i++) {
+	//	score[i] = i;
+	//	printf("%d ",score[i]);
+	//}
+	//free(score);
+
+	//포인터 생성
+	int* pi;
+	double* pf;
+	char* pc;
+
+	//동적 메모리 할당
+	pi = (int*)malloc(sizeof(int));
+	pf = (double*)malloc(sizeof(double));
+	pc = (char*)malloc(sizeof(char));
+
+	//동적 메모리할당이 없는 경우
+	if (pi == NULL || pf == NULL || pc == NULL) {
+		printf("동적 메모리 할당 오류");
+		exit(1);
+	}
+	//첫번째 인덱스에 값 할당
+
+	*pi = 100; //pi[0]=100;
+	*pf = 3.14;
+	*pc = 'a';
+	//값 출력
+	printf("pi= %d\n", *pi);
+	printf("pf= %.2f\n", *pf); //.2는 소수점 뒤엔 2자리 수만 나옴
+	printf("pc= %c\n", *pc);
+	/*
+	pi= 100
+	pf= 3.140000
+	pc= a
+	*/
+
+	//동적 메모리 해제
+	free(pi);
+	free(pf);
+	free(pc);
+	return 0;
+
+	
+
+
+}

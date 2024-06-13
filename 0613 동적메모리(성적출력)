@@ -1,0 +1,62 @@
+#include <iostream>
+#include <stdio.h>
+#define SIZE 3
+int main()
+{
+	//포인터 변수 생성
+	int* list;
+	//학생 수
+	int i;
+	//학생 수
+	int student;
+	//합계
+	int sum=0;
+	//메모리 할당
+	list = (int*)malloc(SIZE * sizeof(int));
+	if (list == NULL) { //반환값이 null인지 검사
+		printf("동적 메모리 할당 오류");
+		exit(1);
+	}
+	///성적 입력
+	for (int i = 0; i < SIZE; i++) {
+		printf("%d 학생 성적 입력: ",i);
+		scanf_s("%d", &list[i]);
+		sum += list[i];
+	}
+	sum = sum / SIZE;
+	for (int i = 0; i < SIZE; i++) {
+		printf("학생 %d 성적: %d\n",i,list[i]);
+	}
+	printf("성적 평균: %d\n", sum);
+	free(list);
+
+	//학생 수
+	//성적 입력
+
+	////리스트 포인터 변수 생성
+	//int* list;
+	////동적 메모리 할당
+	//list = (int*)malloc(100 * sizeof(int)); //3개의 int 메모리 방 생성
+	////만약 메모리 할당 안된 경우 종료
+	//if (list == NULL) { //반환값이 NULL인지 검사
+	//	printf("동적 메모리 할당 오류");
+	//	exit(1);
+
+	//}
+	////리스트 인덱스 값들에 값 할당
+	////list[0] = 10;
+	////list[1] = 20;
+	////list[2] = 30;
+	////값 출력
+	//printf("리스트 값: ");
+	//for (int i = 0; i < SIZE; i++) {
+	//	list[i] = i;
+	//	printf("%d", list[i]);
+	//	if (i != SIZE - 1) printf(" ,");
+
+	//}
+	////메모리 해제
+	//free(list); //list가 가리키는 주소를 넣어서 그 주소에 있는 메모리들을 해제시킴
+	//return 0;
+
+}

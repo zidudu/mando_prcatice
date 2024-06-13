@@ -1,0 +1,47 @@
+#include <iostream>
+#include <stdio.h>
+#define SIZE 3
+int main()
+{
+	//calloc()은 0으로 초기화된 메모리 할당
+	//calloc()은 항목 당ㄴ위로 메로리 할당
+	//int* p;
+	//p = (int*)calloc(5, sizeof(int));
+	//for (int i = 0; i < 5; i++) {
+	//	printf("%d ", p[i]); //0 0 0 0 0
+	//}
+
+	//realloc() 함수는 할당하였던 메모리 블록의 크기 변경
+	//int* p;
+	//p = (int*)calloc(5, sizeof(int));
+	//realloc(p, 7 * sizeof(int));
+	//for (int i = 0; i < 7; i++) {
+	//	printf("%d ", p[i]); //0 0 0 0 0
+	//}
+
+	printf("정수 2개를 저장할 공간 필요\n");
+	
+	//포인터 변수 생성 후 공간 할당
+	int* list = (int*)malloc(sizeof(int) * 2);
+	//제어 변수
+	int i;
+	//list의 공간을 realloc으로 공간 크기 바꿔서 사용할 포인터 변수
+	int* list_new;
+
+	//값 입력
+	list[0] = 10;
+	list[1] = 20;
+	//값 출력
+	printf("%d, %d\n", list[0],list[1]);
+
+	printf("정수 3개를 저장 공간 확장\n");
+	//list의 공간을 realloc으로 3개의 공간으로 확장시킴
+	list_new = (int*)realloc(list, sizeof(int) * 3); //근데 calloc()으로 해서 0초기화했는데 확장시켜버리면 확장된 크기의 값들은 0으로 초기화안됨
+	//값 입력
+	list_new[2] = 30; 
+	// 값 출력
+	for (i = 0; i < 3; i++) {
+		printf("%d ", list_new[i]);
+	}
+	printf("\n");
+}

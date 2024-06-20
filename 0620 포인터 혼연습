@@ -1,0 +1,63 @@
+// mando pointer practice.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
+//
+
+#include <stdio.h>
+#include <stdlib.h> // 이거 필수
+int main()
+{
+	////int* p = NULL;
+	//int* p = NULL;
+	//if (p != NULL) {
+	//	p = (int*)malloc(sizeof(int));
+
+	//}
+	//int a = 1000;
+	//p = &a;
+	//printf("p = %d", *p);
+	//free(p);
+
+	//char* pc;
+	//int* pi;
+	//double* pd;
+
+	//pc = (char*)10000;
+	//pi = (int*)10000;
+	//pd = (double*)10000;
+	////%u는 부호없는 정수
+	//printf(" pc=%u,  pc+1=%u,  pc+2= %u\n", pc, pc + 1, pc + 2);
+	//printf(" pi=%u,  pi+1=%u,  pi+2= %u\n", pi, pi + 1, pi + 2);
+	//printf(" pd=%u,  pd+1=%u,  pd+2= %u\n", pd, pd + 1, pd + 2);
+
+
+	////*p++  은 p 가 가리키는 값을 v에 대입한 후에 p 를 증가한다. 즉 주소를 증가
+	//(*p)++은 p가 가리키는 값을 v 에 대입한 후에 가리키는 값을 증가시킴 즉 값 자체 증가 
+	//
+
+	int i = 10;
+	int* pi = &i;
+
+	printf("i = %d,  pi = %p\n", i, pi);
+
+	(*pi)++; //pi가 가리키는 위치의 값을 증가
+	printf("i = %d,  pi = %d\n", i, *pi);
+
+	*pi++; //pi가 가리키는 위치의 주소를 증가
+	printf("i = %d,  pi = %d\n", i, *pi);
+	return 0;
+
+	//*++p 는 p 를 증가시킨 후 에 p가 가리키는 값을 v 에 대입. 즉 주소를 증가시켜서 나오는 값을 대입
+	//++*p는 p가 가리키는 값을 가져온 후 그 값을 증가시켜서 v에 대입한다.
+
+	//타입 변경
+	double f = 10;
+	double* pd = &f;
+	int* pi;
+	pi = (int*)pd;
+	//pi= (int *)&f;
+
+	int v;
+	v = *p++; //v에 p가 가리키는 값을 v에 넣고 나서 p의 주소를 증가시킴
+	v = (*p)++; //v에 p가 가리키는 값을 v 에 넣고 나서 p가 가리키는 주소에 있는 값을 증가시킴
+	v = *++p; //v에 p가 가리키는 주소를 일단 증가시키고 그 증가시킨 주소에 있는 값을 v에 대입
+	v = ++ * p; //v에 p가 가리키는 주소에 있는 값을 증가시킨 다음 그 값을 v에 대입
+}
